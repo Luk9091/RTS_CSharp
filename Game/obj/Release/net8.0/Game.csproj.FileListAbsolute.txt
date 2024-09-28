@@ -1,0 +1,14 @@
+/home/lukasz/Dokumenty/GitHub/C_kratka/Project/Game/bin/Release/net8.0/Game
+/home/lukasz/Dokumenty/GitHub/C_kratka/Project/Game/bin/Release/net8.0/Game.deps.json
+/home/lukasz/Dokumenty/GitHub/C_kratka/Project/Game/bin/Release/net8.0/Game.runtimeconfig.json
+/home/lukasz/Dokumenty/GitHub/C_kratka/Project/Game/bin/Release/net8.0/Game.dll
+/home/lukasz/Dokumenty/GitHub/C_kratka/Project/Game/bin/Release/net8.0/Game.pdb
+/home/lukasz/Dokumenty/GitHub/C_kratka/Project/Game/obj/Release/net8.0/Game.GeneratedMSBuildEditorConfig.editorconfig
+/home/lukasz/Dokumenty/GitHub/C_kratka/Project/Game/obj/Release/net8.0/Game.AssemblyInfoInputs.cache
+/home/lukasz/Dokumenty/GitHub/C_kratka/Project/Game/obj/Release/net8.0/Game.AssemblyInfo.cs
+/home/lukasz/Dokumenty/GitHub/C_kratka/Project/Game/obj/Release/net8.0/Game.csproj.CoreCompileInputs.cache
+/home/lukasz/Dokumenty/GitHub/C_kratka/Project/Game/obj/Release/net8.0/Game.dll
+/home/lukasz/Dokumenty/GitHub/C_kratka/Project/Game/obj/Release/net8.0/refint/Game.dll
+/home/lukasz/Dokumenty/GitHub/C_kratka/Project/Game/obj/Release/net8.0/Game.pdb
+/home/lukasz/Dokumenty/GitHub/C_kratka/Project/Game/obj/Release/net8.0/Game.genruntimeconfig.cache
+/home/lukasz/Dokumenty/GitHub/C_kratka/Project/Game/obj/Release/net8.0/ref/Game.dll

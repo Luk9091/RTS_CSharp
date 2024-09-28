@@ -1,0 +1,54 @@
+Imię i nazwisko: Łukasz Przystupa
+Grupa (dzień, godzina): środa 9:45
+
+
+1. Temat aplikacji (np. gra detektywistyczna, symulator lotu na Marsa):
+Ekonomia Cesarstwa Rzymskiego
+ 
+2. Czynności wykonywane przez użytkownika pod względem MERYTORYCZNYM (np. podejmowanie decyzji i rozwiązywanie zagadek, określanie parametrów lotu):
+Zadaniem gracza, jest zbudowanie potężnego Imperium... ale imperium składa się z miast wsi, kopalni i ludzi. Gracz wcieli się w role zarządcy ziemskiego,
+ktory to musi zaplanować budowę pierwszych domów. Wysłać ludzi do kopalni lasu i farmy. Do obrony należy także wybudować mur, plac treningowy oraz wyszkolić ludzi.
+
+
+3. Czynności wykonywane przez użytkownika pod względem TECHNICZNYM (np. klikanie przycisków na klawiaturze, dostarczanie plików z parametrami wejściowymi):
+Głownym (i prawdopodobnie jedynym) interfejsem, komunikacyjnym będzie shell w postaci CLI. Przykładowo:
+    (komenda parametr)
+    build blacksmith
+Jeśli sie uda to implementacja autocomplete będzie dobrym rozwiązaniem. Jeśli nie to `Tab` wyświetli listę dostępnych komend wraz z opisem.
+
+4. Oczekiwane rezultaty (np. gra kończy się prawidłowym lub nieprawidłowym wskazaniem mordercy; symulacja zwraca informację o tym, czy udało się dolecieć na Marsa):
+Gra kończy się niedowidzeniem w przypadku zniszczenia wioski na przykład: ataku bandytów, śmierci głodowej, plagi lub przez inne zdarzenie losowe.
+A celem gry jest przeżyć jak najdłużej oraz ciągły rozwój.
+
+
+5. Proszę zidentyfikować jeden przypadek wykorzystania polimorficznej metody, który na pewno trzeba będzie umieścić w programie (np. Metoda [nazwa] w klasie/interfejsie [nazwa] i klasach dziedziczących – w zależności od klasy, metoda ta będzie...):
+Metoda Work(); w interfejsie ICivilian, dziedziczona przez klasy Blacksmith, Merchant, Worker, Farmer.
+W każdej pod klasie metoda będzie zwracań ilość punktów pracy, wytworzonych przez każdego mieszkańca o ile zostały spełnione jego zapotrzebowania.
+Przykładowo:
+Rolnik, jeśli ma narzędzia i jedzenie, będzie pracował ze 100% sprawnością. Jeśli do tego w momencie wywołania metody Work pada deszcz, jego efektywność wzrośnie. 
+Natomiast podczas najazdu zostanie zredukowana do 0.
+
+
+6. Proszę zidentyfikować jakiś rodzaj relacji między klasami inny niż dziedziczenie wykorzystywane w punkcie 5, który trzeba będzie umieścić w programie (np. Klasa [nazwa1] połączona z klasą [nazwa2] przy pomocy dziedziczenia/agregacji/kompozycji/zależności...):
+Klasa Storage - która będzie agregatorem, na obiekty klasy Item, dodatkowo będzie w stanie produkować z obiektów klasy Item, obiekty klasy Create, który jest kompozytem przedmiotów.
+Każdy NPC, może przenosić przedmioty (być ich agregatorem). Worker może dodatkowo przenosić skrzynki. 
+Przedmioty i skrzynki mogą być sprzedawane przez Merchant'a na złoto, które można wymienić na inne przedmioty.
+
+
+7. Proszę zidentyfikować i nazwać trzy klasy, które nie zostały wymienione w punktach 5 i 6, a które na pewno trzeba będzie umieścić w programie (np. Klasy [nazwa1], [nazwa2], [nazwa3]):
+Klasa City - agregator na budynki i ludzi. Posiada zdrowie, poziom obrony. Miasto jest uniwersalnym agregatorem na wszystkie zasoby gracza. Posiada informację, o stanie złota,
+stanie żywności i zapotrzebowaniu na nią. Ma też dostęp do magazynów zbudowanych w mieście. Zna liczbę ludności i wojsk, oraz przedstawia zapotrzebowania na materiały.
+Klasa BanditCamp - fabryka bandytów, samowystarczalny odpowiednik miasta, z możliwością tworzenia bandytów ale bez stabilnej ekonomii, może zostać zniszczony ale po jakimś czasie może się odnowić.
+Klasa Bandit - bandyta, tworzony przez obóz. Może należeć do kompozycji Ride. Główną metodą jest Siege(ISiegeable) - oblężenie (atak na budynek, miasto lub kopalnię, lub NPC). 
+Udany atak powoduje zdobycie zasobów przez bandytę (te zasoby są tracone), przegrany atak śmierć bandyty.
+
+
+8. Miejsce na ewentualne uwagi lub pytania do prowadzącego: 
+Proponowany wzorzec projektowy to fabryka. Praktycznie wszystko będzie fabryką z łańcuchem zobowiązań.
+Kowal jest producentem narzędzi, który mogą wykorzystać rolnicy.
+Kowalowi potrzebne są zasoby z kopalni, które wydobywają górnicy.
+Mieszkańcy do pracy potrzebują jedzenia produkowanego na farmach przez rolników. 
+A do optymalnej pracy potrzebne są narzędzia.
+
+Jeśli kowal nie ma jedzenia, nie będzie mógł produkować narzędzi - fabryka zostanie wyłączona.
+Zabezpieczeniem jest handlarz, który może sprowadzić jedzenie i narzędzia ale wymaga to złota.
